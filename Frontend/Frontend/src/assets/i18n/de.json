@@ -1,0 +1,114 @@
+{
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "Main"
+    },
+    "DASHBOARD": {
+      "TEXT": "Armaturenbrett",
+      "LIST": {
+        "DASHBOARD1": "Armaturenbrett 1",
+        "DASHBOARD2": "Armaturenbrett 2"
+      }
+    },
+    "PROJECTS": {
+      "TEXT": "Projekte",
+      "LIST": {
+        "ALL-PROJECTS": "Alle Projekte",
+        "ADD-PROJECT": "Projekt hinzufügen",
+        "PROJECT-DETAILS": "Projekt Details"
+      }
+    },
+    "EMPLOYEES": {
+      "TEXT": "Angestellte",
+      "LIST": {
+        "ALL-EMPLOYEE": "Alle Angestellten",
+        "ADD-EMPLOYEE": "Mitarbeiter hinzufügen",
+        "EDIT-EMPLOYEE": "Mitarbeiter bearbeiten",
+        "PROFILE": "Angestelltenprofil"
+      }
+    },
+    "LEAVES": {
+      "TEXT": "Verwaltung verlassen",
+      "LIST": {
+        "LEAVE-REQUESTS": "Alle Urlaubsanträge",
+        "LEAVE-BALANCE": "Guthaben verlassen",
+        "LEAVE-TYPES": "Arten verlassen"
+      }
+    },
+    "CLIENTS": {
+      "TEXT": "Kunden",
+      "LIST": {
+        "ALL-CLIENTS": "Alle Kunden",
+        "ADD-CLIENT": "Kunden hinzufügen",
+        "EDIT-CLIENT": "Kunden bearbeiten"
+      }
+    },
+    "HOLIDAYS": {
+      "TEXT": "Ferien",
+      "LIST": {
+        "ALL-HOLIDAYS": "Alle Feiertage",
+        "ADD-HOLIDAY": "Urlaub hinzufügen",
+        "EDIT-HOLIDAY": "Feiertag bearbeiten"
+      }
+    },
+    "ATTENDANCE": {
+      "TEXT": "Teilnahme",
+      "LIST": {
+        "TODAY": "Die heutige Anwesenheit",
+        "EMPLOYEE": "Mitarbeiteranwesenheit",
+        "SHEET": "Anwesenheitsliste"
+      }
+    },
+    "ACCOUNTS": {
+      "TEXT": "Zahlungen",
+      "LIST": {
+        "ALL-PAYMENTS": "Alle Zahlungen",
+        "ADD-PAYMENT": "Zahlung hinzufügen",
+        "INVOICE": "Rechnung"
+      }
+    },
+    "EMPLOYEE": {    
+        "DASHBOARD": "Dashboard",
+        "ATTENDANCE": "Teilnahme",
+        "MY-LEAVES": "My Leaves",
+        "MYTEAM": "My Team",
+        "MYPROJECTS": "My Projects",
+        "MYTASKS": "My Tasks",
+        "SETTINGS": "die Einstellungen",
+        "CHAT": "Plaudern"
+    },
+    "CLIENT": {    
+      "TEXT": "Klientin",
+      "DASHBOARD": "Dashboard",
+      "PROJECTS": {
+        "TEXT": "Projects",
+        "LIST": {
+          "MY-PROJECTS": "My Projects",
+          "PROJECT-DETAILS": "Project Details"
+        }
+      },
+      "SUPPORTS": {
+        "TEXT": "Supports",
+        "LIST": {
+          "TICKETS": "Tickets",
+          "TICKET-DETAILS": "Ticket Details"
+        }
+      },
+      "BILLING": "Abrechnung",
+      "CHAT": "Plaudern",
+      "SETTINGS": "die Einstellungen"
+    },
+    "APPS": {
+      "TEXT": "Apps"
+    },
+    "CALENDAR": {
+      "TEXT": "Kalender"
+    },
+    "TASK": {
+      "TEXT": "Aufgabe"
+    },
+    "CONTACTS": {
+      "TEXT": "Kontakte"
+    }
+  }
+}

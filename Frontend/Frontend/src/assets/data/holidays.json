@@ -1,0 +1,129 @@
+[{
+    "id": "001",
+    "hName": "New Year",
+    "date": "2021-12-31T14:22:18Z",
+    "location": "All Locations",
+    "shift": "All Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "002",
+    "hName": "World Aids Day",
+    "date": "2021-12-10T14:22:18Z",
+    "location": "All Locations",
+    "shift": "Day Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "003",
+    "hName": "World Milk Day",
+    "date": "2021-06-01T14:22:18Z",
+    "location": "All Locations",
+    "shift": "Night Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "004",
+    "hName": "Diwali",
+    "date": "2021-11-04T14:22:18Z",
+    "location": "All Locations",
+    "shift": "All Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "005",
+    "hName": "Global Family Day",
+    "date": "2021-01-01T14:22:18Z",
+    "location": "All Locations",
+    "shift": "Night Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "006",
+    "hName": "Earth Hour",
+    "date": "2021-03-27T14:22:18Z",
+    "location": "All Locations",
+    "shift": "All Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "007",
+    "hName": "World Book Day",
+    "date": "2021-04-23T14:22:18Z",
+    "location": "All Locations",
+    "shift": "All Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "008",
+    "hName": "International Yoga Day",
+    "date": "2021-06-21T14:22:18Z",
+    "location": "All Locations",
+    "shift": "Night Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "009",
+    "hName": "Eid",
+    "date": "2021-04-11T14:22:18Z",
+    "location": "All Locations",
+    "shift": "Day Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "010",
+    "hName": "Holi",
+    "date": "2021-07-25T14:22:18Z",
+    "location": "All Locations",
+    "shift": "Night Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "011",
+    "hName": "Christmas",
+    "date": "2021-12-25T14:22:18Z",
+    "location": "All Locations",
+    "shift": "Day Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "012",
+    "hName": "Dussehra",
+    "date": "2021-07-18T14:22:18Z",
+    "location": "All Locations",
+    "shift": "All Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "013",
+    "hName": "April Fools Day",
+    "date": "2021-04-01:22:18Z",
+    "location": "All Locations",
+    "shift": "All Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "014",
+    "hName": "Good Friday",
+    "date": "2021-12-31T14:22:18Z",
+    "location": "All Locations",
+    "shift": "Day Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "015",
+    "hName": "Easter",
+    "date": "2021-12-31T14:22:18Z",
+    "location": "All Locations",
+    "shift": "Night Shifts",
+    "details": "This festival is celebrate for."
+  },
+  {
+    "id": "016",
+    "hName": "Halloween",
+    "date": "2021-10-31T14:22:18Z",
+    "location": "All Locations",
+    "shift": "All Shifts",
+    "details": "This festival is celebrate for."
+  }
+]

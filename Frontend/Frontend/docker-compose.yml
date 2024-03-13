@@ -1,0 +1,8 @@
+version: '3'
+services:
+  clientside:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: coullence/suppliers_portal_frontend:latest
+

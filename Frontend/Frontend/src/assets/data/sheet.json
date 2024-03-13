@@ -1,0 +1,29 @@
+[
+    {
+        "id": "1",
+        "name": "priya patel",
+        "days": [
+            {
+                "1": "true",
+                "2": "true",
+                "3": "true",
+                "4": "false",
+                "5": "true"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Jatin Garala",
+        "days": [
+            {
+                "1": "false",
+                "2": "false",
+                "3": "true",
+                "4": "false",
+                "5": "true"
+            }
+        ]
+    }
+   
+]

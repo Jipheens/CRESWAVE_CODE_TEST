@@ -1,0 +1,372 @@
+<section class="dashboard">
+    <div class="container">
+        <div class="breadcrumb-banner bg-kingdom">
+            <h1>E&M TECH ERP Dashboard</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a>Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        User Account Information
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="row clearfix my-4">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="m-b-20">
+                        <div class="contact-grid">
+                            <div class="profile-header bg-dark">
+                                <div class="user-name">{{ currentUser.username }}</div>
+                                <div class="name-center" *ngFor="let role of currentUser.roles">{{ role }}</div>
+                            </div>
+                            <img src="assets/images/user/profile_img.png" class="user-img" alt="" />
+                            <p>
+                                Hurlingham Court, Argwings Kodhek Rd,
+                                <br />Nairobi
+                            </p>
+                            <div>
+                                <span class="phone">
+                                    <i class="material-icons">phone</i>{{ currentUser.phoneNo }}</span>
+                            </div>
+                            <div>
+                                <span class="phone">
+                                    <i class="material-icons">mail</i>{{ currentUser.email }}</span>
+                            </div>
+                            <!-- <div class="row">
+                <div class="col-4">
+                  <h5>564</h5>
+                  <small>Following</small>
+                </div>
+                <div class="col-4">
+                  <h5>18k</h5>
+                  <small>Followers</small>
+                </div>
+                <div class="col-4">
+                  <h5>565</h5>
+                  <small>Post</small>
+                </div>
+              </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="card">
+          <mat-tab-group mat-align-tabs="start">
+            <mat-tab label="About">
+              <div class="p-4">
+                <small class="text-muted">Email address: </small>
+                <p>{{ currentUser.email }}</p>
+                <hr />
+                <small class="text-muted">Phone: </small>
+                <p>+254 ...</p>
+                <hr />
+              </div>
+            </mat-tab>
+
+          </mat-tab-group>
+        </div> -->
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="card">
+                    <mat-tab-group>
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                <mat-icon class="example-tab-icon msr-2">person</mat-icon>
+                                Account Details
+                            </ng-template>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="project_widget">
+                                    <div class="header">
+                                        <h2><strong>About Me</strong></h2>
+                                    </div>
+                                    <div class="body">
+                                        <div class="row">
+                                            <div class="col-md-3 col-6 b-r mt-2 mb-4">
+                                                <strong>First Name</strong>
+                                                <br />
+                                                <p class="text-muted">{{ currentUser.firstName }}</p>
+                                            </div>
+                                            <div class="col-md-3 col-6 b-r mt-2 mb-4">
+                                                <strong>Second Name</strong>
+                                                <br />
+                                                <p class="text-muted">{{ currentUser.lastName }}</p>
+                                            </div>
+
+                                            <div class="col-md-3 col-6 b-r mt-2 mb-4">
+                                                <strong>Role</strong>
+                                                <br />
+                                                <p class="text-muted" *ngFor="let role of currentUser.roles">{{ role }}
+                                                </p>
+                                            </div>
+
+                                            <!-- <div class="col-md-3 col-6 b-r mt-2 mb-4">
+                                                <strong>Address</strong>
+                                                <br />
+                                                <p class="text-muted">{{ currentUser.address }}</p>
+                                            </div>
+
+                                            <div class="col-md-3 col-6 b-r mt-2 mb-4">
+                                                <strong>EmpPfNo</strong>
+                                                <br />
+                                                <p class="text-muted">{{ currentUser.empPfNo }}</p>
+                                            </div>
+
+                                            <div class="col-md-3 col-6 b-r mt-2 mb-4">
+                                                <strong>BranchCode</strong>
+                                                <br />
+                                                <p class="text-muted">{{ currentUser.branchCode }}</p>
+                                            </div>
+                                            <div class="col-md-3 col-6 b-r mt-2 mb-4">
+                                                <strong>DepartmentCode</strong>
+                                                <br />
+                                                <p class="text-muted">
+                                                    {{ currentUser.departmentCode }}
+                                                </p>
+                                            </div>
+                                            <div class="col-md-3 col-6 b-r mt-2 mb-4">
+                                                <strong>CostCenterCode</strong>
+                                                <br />
+                                                <p class="text-muted">
+                                                    {{ currentUser.costCenterCode }}
+                                                </p>
+                                            </div> -->
+
+                                            <div class="col-md-3 col-6 b-r mt-2 mb-4">
+                                                <strong>Status</strong>
+                                                <br />
+                                                <p class="text-muted">{{ currentUser.status }}</p>
+                                            </div>
+
+                                            <!-- <div class="col-md-3 col-6 b-r mt-2 mb-4">
+                                                <strong>Last Login Time</strong>
+                                                <br />
+                                                <p class="text-muted">
+                                                    {{ currentUser.loginAt | date : "medium" }}
+                                                </p>
+                                            </div>
+
+                                            <div class="col-md-3 col-6 b-r mt-2 mb-4">
+                                                <strong>Browser</strong>
+                                                <br />
+                                                <p class="text-muted">{{ currentUser.browser }}</p>
+                                            </div>
+                                            <div class="col-md-3 col-6 b-r mt-2 mb-4">
+                                                <strong>OS</strong>
+                                                <br />
+                                                <p class="text-muted">{{ currentUser.os }}</p>
+                                            </div> -->
+                                        </div>
+                                        <!-- <p class="m-t-30">Completed my graduation in Arts from the well known and
+                      renowned institution
+                      of India – SARDAR PATEL ARTS COLLEGE, BARODA in 2000-01, which was
+                      affiliated
+                      to M.S. University. I ranker in University exams from the same
+                      university
+                      from 1996-01.</p>
+                    <p>Worked as Professor and Head of the department at Sarda Collage, Rajkot,
+                      Gujarat
+                      from 2003-2015 </p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                      industry. Lorem
+                      Ipsum has been the industry's standard dummy text ever since the 1500s,
+                      when
+                      an unknown printer took a galley of type and scrambled it to make a
+                      type
+                      specimen book. It has survived not only five centuries, but also the
+                      leap
+                      into electronic typesetting, remaining essentially unchanged.</p>
+                     -->
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-tab>
+
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                <mat-icon class="example-tab-icon msr-2">settings</mat-icon>
+                                Account Settings
+                            </ng-template>
+                            <div class="header">
+                                <h2><strong>Reset Password</strong></h2>
+                            </div>
+                            <div class="body">
+                                <form [formGroup]="updatePasswordForm">
+                                    <div class="example-container">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <mat-form-field class="example-full-width" appearance="fill">
+                                                        <mat-label>EmailAddress</mat-label>
+                                                        <input matInput formControlName="emailAddress" required
+                                                            readonly />
+                                                        <mat-error
+                                                            *ngIf="updatePasswordForm.get('emailAddress').hasError('required')">
+                                                            Email Address is required
+                                                        </mat-error>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+
+                                            <!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Current Password</mat-label>
+                            <input matInput formControlName="currentPassword" [type]="hide ? 'password' : 'text'"
+                              required />
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                              [attr.aria-pressed]="hide">
+                              <mat-icon>{{
+                                hide ? "visibility_off" : "visibility"
+                                }}</mat-icon>
+                            </button>
+                            <mat-error *ngIf="
+                                updatePasswordForm
+                                  .get('currentPassword')
+                                  .hasError('required')
+                              ">
+                              Current password is required
+                            </mat-error>
+                          </mat-form-field>
+                        </div>
+                      </div> -->
+                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <mat-form-field class="example-full-width" appearance="fill">
+                                                        <mat-label>New Password</mat-label>
+                                                        <input matInput formControlName="password"
+                                                            [type]="hide ? 'password' : 'text'" required />
+                                                        <button mat-icon-button matSuffix (click)="hide = !hide"
+                                                            type="button" [attr.aria-label]="'Hide password'"
+                                                            [attr.aria-pressed]="hide">
+                                                            <mat-icon>{{
+                                                                hide ? "visibility_off" : "visibility"
+                                                                }}</mat-icon>
+                                                        </button>
+                                                        <mat-error
+                                                            *ngIf="updatePasswordForm.get('password').hasError('required')">
+                                                            New password is required
+                                                        </mat-error>
+                                                        <mat-error
+                                                            *ngIf="updatePasswordForm.get('password').hasError('pattern')">
+                                                            Password must contain at least 1 uppercase letter,
+                                                            1 lowercase letter, 1 number and 1 special
+                                                            character.
+                                                        </mat-error>
+                                                        <mat-error
+                                                            *ngIf=" updatePasswordForm.get('password').hasError('minLength')">
+                                                            Please enter atleast 10 characters.
+                                                        </mat-error>
+                                                        <mat-error
+                                                            *ngIf="updatePasswordForm.get('password').hasError('maxLength')">
+                                                            Characters must not exceed 25.
+                                                        </mat-error>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <mat-form-field class="example-full-width" appearance="fill">
+                                                        <mat-label>Confirm Password</mat-label>
+                                                        <input matInput formControlName="confirmPassword"
+                                                            [type]="hide ? 'password' : 'text'" required />
+                                                        <button mat-icon-button matSuffix (click)="hide = !hide"
+                                                            [attr.aria-label]="'Hide password'"
+                                                            [attr.aria-pressed]="hide">
+                                                            <mat-icon>{{
+                                                                hide ? "visibility_off" : "visibility"
+                                                                }}</mat-icon>
+                                                        </button>
+                                                        <mat-error
+                                                            *ngIf="updatePasswordForm.get('confirmPassword').hasError('required')">
+                                                            Confirm Password is required
+                                                        </mat-error>
+                                                        <mat-error
+                                                            *ngIf="updatePasswordForm.get('confirmPassword').hasError('pattern')">
+                                                            Password must contain at least 1 uppercase letter,
+                                                            1 lowercase letter, 1 number and 1 special
+                                                            character.
+                                                        </mat-error>
+                                                        <mat-error
+                                                            *ngIf="updatePasswordForm.get('confirmPassword').hasError('minLength')">
+                                                            Please enter atleast 10 characters.
+                                                        </mat-error>
+                                                        <mat-error
+                                                            *ngIf="updatePasswordForm.get('confirmPassword').hasError('maxLength')">
+                                                            Characters must not exceed 25.
+                                                        </mat-error>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button mat-raised-button type="submit" [disabled]="!updatePasswordForm.valid"
+                                        color="primary" (click)="updatePassword()">
+                                        Update Password
+                                    </button>
+                                </form>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 text-left vendor-logo">
+                        <img src="/assets/images/emTec1.png" alt="E&M Technology House logo" height="80px"
+                            width="80px" />
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="animated fadeInLeft">About E&M Technology House</h4>
+                        <p class="animated fadeInRight">
+                            E&M Technology House is a leading provider of innovative IT
+                            solutions for businesses of all sizes. We offer a wide range of
+                            services, including software development, web design, and IT
+                            consulting. We are committed to providing our clients with
+                            high-quality, cost-effective solutions that help them achieve
+                            their business goals.
+                        </p>
+                    </div>
+
+                    <!-- <div class="icon-preview"><i class="fab fa-twitter"></i></div> -->
+
+                    <div class="col-md-4">
+                        <h4 class="animated fadeInLeft">Connect with Us</h4>
+                        <ul class="list-unstyled social-icons animated fadeInRight">
+                            <li>
+                                <a target="_blank"
+                                    href="https://facebook.com/emtechhouse"><mat-icon>facebook</mat-icon>E&M
+                                    Technology
+                                    House</a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://twitter.com/emtechhouse"><i
+                                        class="fab fa-twitter"></i>E&M
+                                    Technology House</a>
+                            </li>
+                            <li>
+                                <a target="_blank"
+                                    href="https://linkedin.com/company/emtechhouse"><mat-icon>linkedin</mat-icon>E&M
+                                    Technology House</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="animated bounceIn" />
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p class="copyright animated pulse">
+                            &copy; {{currentYear}} E&M TECH HUB ERP. All Rights Reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</section>

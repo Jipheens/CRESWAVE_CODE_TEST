@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~material-icons-font/sass/variables";
+@import "~material-icons-font/sass/mixins";
+$MaterialIcons_FontPath: "~material-icons-font/fonts";
+@import "~material-icons-font/sass/main";
+@import "~material-icons-font/sass/Regular";
+
+
+
+html {
+  font-size: 18px;
+  /* change the value as needed */
+}
+
+//  input, textarea, html {
+//   text-transform: uppercase;
+//  }
+
+// table.table-hover-tr td {
+//     background-color: #FEFEFE;
+//     }
+
+// tr:hover {
+//     background-color:#f5f5f5;
+// }
+
+// table {
+//     border-collapse: collapse;
+//     width: 100%;
+//   }
+
+//   th, td {
+//     padding: 8px;
+//     text-align: left;
+//     border-bottom: 1px solid #ddd;
+//   }
+
+//   tr:hover {background-color: coral;}
+// #e3e3e3
+.table tr.activeRow td {
+  background-color: #e8e8e8 !important;
+  //color: white;
+}

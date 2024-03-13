@@ -1,0 +1,197 @@
+<section class="content">
+    <div class="content-block">
+        <div class="block-header">
+            <!-- breadcrumb -->
+            <app-breadcrumb [title]="'Manage Roles'" [items]="['Roles']" [active_item]="'Manage Roles'">
+            </app-breadcrumb>
+        </div>
+
+        <div class="row clearfix row m-t-25">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="body" *ngIf="showForm">
+
+                        <!-- <div class="row" *ngIf="pageFunction !== 'Add' && formData">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="card bg-color">
+                                    <div class="chat">
+                                        <div class="chat-header clearfix">
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                                                    <div class="chat-about">
+                                                        <div class="chat-with">Posted By</div>
+                                                        <div class="chat-num-messages mt-2">
+                                                            <div class="badge badge-solid-blue"
+                                                                style="color: #fff; background-color: #007bff">
+                                                                {{ formData.postedBy }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                                                    <div class="chat-about">
+                                                        <div class="chat-with">Posted Date</div>
+                                                        <div class="chat-num-messages mt-2">
+                                                            <div class="badge badge-solid-pink"
+                                                                style="color: #fff; background-color: #e81c62">
+                                                                {{ formData.postedTime | date : "medium" }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="mx-2" col>
+                            <mat-tab-group animationDuration="1000ms" #tabGroup>
+                                <mat-tab label="{{pageFunction | uppercase}} ROLE">
+                                    <div class="row clearfix mx-2">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+
+                                            <div class="header">
+                                                <div class="row">
+                                                    <h2>
+                                                        {{ pageFunction }} Role
+                                                    </h2>
+                                                </div>
+                                            </div>
+
+                                            <div>
+
+                                                <form class="mx-4" [formGroup]="roleForm">
+                                                    <div class="row">
+
+
+                                                        <!-- Role Name-->
+                                                        <div class="col-xl-6 col-lg-46col-md-12 col-sm-12 mb-3">
+                                                            <mat-form-field class="example-full-width mb-3"
+                                                                appearance="outline">
+                                                                <mat-label>
+                                                                    Role Name
+                                                                </mat-label>
+                                                                <input matInput formControlName="name" />
+                                                                <mat-error
+                                                                    *ngIf="roleForm.get('name').hasError('required')">
+                                                                    The Role Name is required
+                                                                </mat-error>
+                                                            </mat-form-field>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Action Buttons -->
+                                                    <div class="row">
+                                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                                                            <div mat-dialog-action [align]="'end'">
+                                                                <button class="btn-space" type="button"
+                                                                    mat-raised-button color="warn" mat-button
+                                                                    (click)="cancel()">
+                                                                    Cancel
+                                                                </button>
+                                                                <button mat-raised-button color="primary"
+                                                                    [hidden]="hideSubmit" [class.auth-spinner]="posting"
+                                                                    [disabled]="!roleForm.valid || posting"
+                                                                    (click)="submit()">
+                                                                    {{ pageFunction }} Role
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </mat-tab>
+
+                                <mat-tab label="UPLOAD MULTIPLE ROLES" *ngIf="pageFunction === 'Add'">
+                                    <div [hidden]="hideSubmit">
+                                        <div class="row clearfix mx-2">
+                                            <div class="mt-4">
+                                                <div class="row clearfix">
+                                                    <h5>Upload Excel File</h5>
+                                                </div>
+                                                <div class="row align-items-center">
+                                                    <div class="col-xl-10 col-lg-11 col-md-8 col-sm-6">
+                                                        <app-file-upload
+                                                            (change)="handleFileInput($event.target.files)"></app-file-upload>
+                                                    </div>
+                                                    <div class="col-xl-1 col-lg-1 col-md-4 col-sm-6">
+                                                        <button mat-raised-button color="primary" [hidden]="hideSubmit"
+                                                            (click)="downloadTemplate()">
+                                                            <i class="fa fa-download"></i> Excel Template
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mt-4 mx-0">
+                                                    <div
+                                                        style="display: flex; flex-wrap: wrap; margin-right: 10px; margin-bottom: 10px;">
+                                                        <mat-chip-list aria-label="Fish selection">
+                                                            <mat-chip color="accent" selected
+                                                                *ngFor="let itemError of itemErrors; let i = index">
+                                                                <span>{{ i + 1 }}. </span>
+                                                                {{ itemError.field }}: {{ itemError.message }}
+                                                                <mat-icon>error</mat-icon>
+                                                            </mat-chip>
+                                                        </mat-chip-list>
+                                                    </div>
+
+                                                    <div class="card">
+                                                        <div class="header">
+                                                            <h2>Roles</h2>
+                                                        </div>
+                                                        <div class="tableBody">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-hover">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Index</th>
+                                                                            <th>Role Name</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr *ngFor="let item of items; let i = index">
+                                                                            <td>{{ i + 1 }}</td>
+                                                                            <td>{{ item.name }}</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <div class="row mx-4 mt-4">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                                            <div mat-dialog-action [align]="'end'">
+                                                <button class="btn-space" type="button" mat-raised-button color="warn"
+                                                    mat-button (click)="cancel()">
+                                                    Cancel
+                                                </button>
+                                                <button mat-raised-button color="primary" [hidden]="hideSubmit"
+                                                    [class.auth-spinner]="posting"
+                                                    [disabled]="hasErrors() || !items.length" (click)="submitBatch()">
+                                                    Submit Batch
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-tab>
+                            </mat-tab-group>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
