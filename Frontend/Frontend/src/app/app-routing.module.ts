@@ -22,27 +22,11 @@ const routes: Routes = [
         loadChildren: () =>
           import("./admin/admin.module").then((m) => m.AdminModule),
       },
-      {
-        path: "dashboard",
-        loadChildren: () =>
-          import("./dashboard/dashboard.module").then((m) => m.DashboardModule),
-      },
-      {
-        path: "erp-admin-module",
-        loadChildren: () =>
-          import("./erp-admin-module/erp-admin-module.module").then(
-            (m) => m.ErpAdminModuleModule
-          ),
-      },
+      
 
     ],
   },
-  {
-    path: "account",
-    component: MainDashboardComponent,
-    loadChildren: () =>
-      import("./account/account.module").then((m) => m.AccountModule),
-  },
+  
   {
     path: "authentication",
     component: AuthLayoutComponent,

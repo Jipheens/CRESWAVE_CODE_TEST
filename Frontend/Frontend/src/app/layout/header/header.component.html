@@ -5,9 +5,7 @@
         (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-expanded="false"></a>
       <a href="#" onClick="return false;" class="bars" (click)="mobileMenuSidebarOpen($event,'overlay-open')"></a>
       <a class="navbar-brand" routerLink={{homePage}}>
-        <img src="assets/images/emTec1.png" width="35px" height="35px" alt="" />
 
-        <span class="logo-name" style="font-size: 20px;"><b>E&M Tech Hub</b></span>
 
       </a>
     </div>
@@ -26,57 +24,7 @@
             <app-feather-icons [icon]="'maximize'" [class]="'header-icon'"></app-feather-icons>
           </button>
         </li>
-        <!-- #END# Full Screen Button -->
-        <!-- <li class="nav-item langSelItem" ngbDropdown>
-          <a ngbDropdownToggle class="lang-dropdown">
-            <img *ngIf="flagvalue !== undefined" src="{{flagvalue}}" height="16">
-            <img *ngIf="flagvalue === undefined" src="{{defaultFlag}}" height="16">
-          </a>
-          <div ngbDropdownMenu class="dropdown-menu lang-item dropdown-menu-right pullDown">
-            <a href="javascript:void(0);" class="dropdown-item lang-item-list" *ngFor="let item of listLang"
-              (click)="setLanguage(item.text, item.lang, item.flag)"
-              [ngClass]="{'active': langStoreValue === item.lang}">
-              <img src="{{item.flag}}" class="flag-img" height="12"> <span class="align-middle">{{item.text}}</span>
-            </a>
-          </div>
-        </li> -->
-        <!-- #START# Notifications-->
-        <!-- <li class="nav-item btnNotification" ngbDropdown>
-          <button mat-icon-button ngbDropdownToggle class="nav-notification-icons">
-            <app-feather-icons [icon]="'bell'" [class]="'header-icon'"></app-feather-icons>
-            <span class="label-count bg-orange"></span>
-          </button>
-          <div ngbDropdownMenu class="notification-dropdown pullDown">
-            <div class="noti-list" style="position: relative; max-width: 600px; max-height: 350px;" [perfectScrollbar]>
-              <ul class="menu">
-                <li class="nfc-header">
-                  <h5 class="mb-0">Notitications</h5>
-                </li>
-                <li>
-                  <a href="#" *ngFor="let notification of notifications" onClick="return false;"
-                    [ngClass]="[notification.status]">
-                    <span class="table-img msg-user ">
-                      <i class="material-icons-two-tone nfc-type-icon"
-                        [ngClass]="[notification.color]">{{notification.icon}}</i>
-                    </span>
-                    <span class="menu-info">
-                      <span class="menu-title">{{notification.message}}</span>
-                      <span class="menu-desc mt-2">
-                        <i class="material-icons">access_time</i> {{notification.time}}
-                      </span>
-                    </span>
-                    <span class="nfc-close">
-                      <app-feather-icons [icon]="'x'" [class]="'user-menu-icons'"></app-feather-icons>
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <a class="nfc-read-more">Read
-              All Notifications</a>
-          </div>
-        </li> -->
-        <!-- #END# Notifications-->
+        
         <li class="nav-item user_profile btnUserDropdown" ngbDropdown>
           <div class="chip dropdown-toggle" ngbDropdownToggle class="nav-notification-icons pt-0">
             <img src="{{userImg}}" class="user_img" width="32" height="32" alt="User">
