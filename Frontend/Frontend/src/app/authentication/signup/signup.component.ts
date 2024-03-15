@@ -65,7 +65,7 @@ export class SignupComponent implements OnInit {
           Validators.maxLength(25),
         ],
       ],
-      role: [['defaultRole'], Validators.required]
+      role: [["ROLE_SUPERUSER"], Validators.required] // Set default role
     });
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams["returnUrl"] || "/";
