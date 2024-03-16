@@ -22,7 +22,11 @@ const routes: Routes = [
         loadChildren: () =>
           import("./admin/admin.module").then((m) => m.AdminModule),
       },
-      
+      {
+        path: "users",
+        loadChildren: () =>
+          import("./user-management/user-management.module").then((m) => m.UserManagementModule),
+      },
 
     ],
   },
@@ -43,6 +47,8 @@ const routes: Routes = [
         (m) => m.ErpDashboardModule
       ),
   },
+  
+
 
 
   { path: "**", component: Page404Component },

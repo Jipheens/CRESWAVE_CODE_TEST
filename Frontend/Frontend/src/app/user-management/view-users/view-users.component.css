@@ -1,0 +1,50 @@
+
+/* Define colors for each status */
+.mat-button.pending {
+  background-color: #007bff;
+  color: white;
+}
+.mat-button.verified {
+  background-color: #6610f2;
+  color: white;
+}
+.mat-button.approved {
+  background-color: #198754;
+  color: white;
+}
+
+.mat-button.rejected {
+  background-color: #dc3545;
+  color: white;
+}
+.mat-button.returned {
+  background-color: #d09e07;
+  color: white;
+}
+
+.spacing {
+  margin: 8px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.mat-button {
+  margin-right: 8px;
+}
+
+/* Add hover effect for buttons */
+.mat-button:hover {
+  /* Use a slightly lighter shade of the defined background-color for hover effect */
+  background-color: lighten(#bebdba, 10%);
+  color: white;
+}
+
+/* Define styles for the selected button */
+.mat-button.active {
+  /* Use a slightly darker shade of the defined background-color for the selected button */
+  background-color: darken(#bababa, 10%);
+  color: white;
+}

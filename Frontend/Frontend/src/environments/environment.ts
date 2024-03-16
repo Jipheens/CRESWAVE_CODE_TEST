@@ -5,5 +5,6 @@ export const environment = {
   
 
   baseUrl: "http://127.0.0.1:9090",
+  userUrl:"http://localhost:7070",
 };
 

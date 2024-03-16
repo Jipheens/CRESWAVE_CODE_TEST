@@ -59,58 +59,7 @@ export class HeaderComponent
     { text: "Spanish", flag: "assets/images/flags/spain.jpg", lang: "es" },
     { text: "German", flag: "assets/images/flags/germany.jpg", lang: "de" },
   ];
-  notifications: any[] = [
-    {
-      message: "Please check your mail",
-      time: "14 mins ago",
-      icon: "mail",
-      color: "nfc-green",
-      status: "msg-unread",
-    },
-    {
-      message: "New Employee Added..",
-      time: "22 mins ago",
-      icon: "person_add",
-      color: "nfc-blue",
-      status: "msg-read",
-    },
-    {
-      message: "Your leave is approved!! ",
-      time: "3 hours ago",
-      icon: "event_available",
-      color: "nfc-orange",
-      status: "msg-read",
-    },
-    {
-      message: "Lets break for lunch...",
-      time: "5 hours ago",
-      icon: "lunch_dining",
-      color: "nfc-blue",
-      status: "msg-read",
-    },
-    {
-      message: "Employee report generated",
-      time: "14 mins ago",
-      icon: "description",
-      color: "nfc-green",
-      status: "msg-read",
-    },
-    {
-      message: "Please check your mail",
-      time: "22 mins ago",
-      icon: "mail",
-      color: "nfc-red",
-      status: "msg-read",
-    },
-    {
-      message: "Salary credited...",
-      time: "3 hours ago",
-      icon: "paid",
-      color: "nfc-purple",
-      status: "msg-read",
-    },
-  ];
-
+  
   ngOnInit() {
     this.config = this.configService.configData;
     // const userRole = this.tokenCookieService.getUser().roles[0];
@@ -120,15 +69,6 @@ export class HeaderComponent
     this.homePage = this.router.url;
 
     console.log("currentUrl: ", this.currentUrl);
-
-    // if (userRole === "ROLE_ADMIN") {
-    //   this.homePage = "admin/dashboard";
-    // } else if (userRole === "ROLE_USER") {
-    //   this.homePage = "user/dashboard";
-    // } else {
-    //   // 404?
-    //   this.homePage = "page-not-found";
-    // }
 
     this.langStoreValue = localStorage.getItem("lang");
     const val = this.listLang.filter((x) => x.lang === this.langStoreValue);
@@ -242,6 +182,31 @@ export class HeaderComponent
       this.renderer.addClass(this.document.body, "submenu-closed");
     }
   }
+  
+  isSuperUser(): boolean {
+    // Check if the user has the 'ROLE_SUPERUSER' role
+    const userRoles = this.tokenCookieService.getUser().roles;
+    return userRoles.includes('ROLE_SUPERUSER');
+  }
+  
+  viewUsers() {
+    const userRoles = this.tokenCookieService.getUser().roles;
+    const isSuperUser = userRoles.includes('ROLE_SUPERUSER');
+  
+    if (isSuperUser) {
+
+      let route = 'users/validate-user';
+      this.router.navigate([route], );
+      
+      console.log('User is a superuser. Approving...');
+    } else {
+      console.log('User is not a superuser. Cannot approve.');
+    }
+  }
+  
+  handleApplications(){
+
+  }
 
   backToDashboard() {
     this.router.navigate(["/erp-dashboard/home"]);
@@ -269,7 +234,6 @@ export class HeaderComponent
     });
   }
 
-  // use this to logout once the api has been developed
   logout2(): void {
     let params = {
       refreshToken: this.tokenCookieService.getUser().refreshToken,

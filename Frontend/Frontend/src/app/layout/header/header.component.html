@@ -10,13 +10,13 @@
       </a>
     </div>
     <div class="collapse navbar-collapse" [ngbCollapse]="isNavbarCollapsed">
-      <ul class="float-start collapse-menu-icon">
+      <!-- <ul class="float-start collapse-menu-icon">
         <li>
           <button mat-icon-button (click)="callSidemenuCollapse()" class="sidemenu-collapse">
             <app-feather-icons [icon]="'menu'" [class]="'header-icon'"></app-feather-icons>
           </button>
         </li>
-      </ul>
+      </ul> -->
       <ul class="nav navbar-nav navbar-right">
         <!-- Full Screen Button -->
         <li class="fullscreen">
@@ -78,6 +78,27 @@
         </li>
         <!-- #END# Tasks -->
       </ul>
+
+      <ul class="nav navbar-nav navbar-left">       
+        <li class="nav-item navbar-spacing" *ngIf="isSuperUser()">
+          <a mat-button (click)="viewUsers()">
+            <span class="sourcing-link">
+              REVIEW ACCOUNT
+            </span>
+          </a>
+        </li>
+      </ul>
+      
+          
+        <!-- <li class="nav-item navbar-spacing">
+          <a mat-button (click)="handleApplications()">
+            <span class="sourcing-link">
+              Manage Applications
+            </span>
+          </a>
+        </li>       -->
+    
+       
     </div>
   </div>
 </nav>

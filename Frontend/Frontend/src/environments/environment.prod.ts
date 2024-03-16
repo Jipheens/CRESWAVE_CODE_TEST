@@ -3,7 +3,7 @@ export const environment = {
 
   production: true,
 
-  
+  userUrl:"http://localhost:7700",  
   baseUrlAdmin: "http://localhost:7700",
 
   

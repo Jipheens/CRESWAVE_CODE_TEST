@@ -1,0 +1,288 @@
+<section class="content">
+    <div class="content-block">
+      <div class="block-header">
+        <!-- breadcrumb -->
+        <app-breadcrumb [title]="'All Users'" [items]="['Users']" [active_item]="'All Uses'">
+        </app-breadcrumb>
+      </div>
+  
+      <!-- <app-gen-widgets></app-gen-widgets> -->
+  
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="m-2 mx-2" *ngIf="isLoading || downloadLoading">
+              <mat-progress-bar color="primary" mode="indeterminate">
+              </mat-progress-bar>
+          </div>
+            <div class="body">
+              <div class="table-responsive">
+                <div class="materialTableHeader">
+                  <div class="row">
+                    <div class="col-4">
+                      <ul class="header-buttons-left ms-0">
+                        <li class="dropdown">
+                          <h2>Users</h2>
+                        </li>
+                        <li class="dropdown m-l-20">
+                          <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                          <input placeholder="Filter..." type="text" (keyup)="applyFilter($event)" #filter
+                            class="browser-default search-field" aria-label="Search box" />
+                        </li>
+                                                
+  
+                        <li *ngIf="this.selectedRows.length > 0">
+                          <div class="m-l-10" matTooltip="VERIFY">
+                            <button mat-mini-fab color="primary" (click)="processMultipleRows('APPROVED')"
+                              class="mat-button-custom">
+                              <mat-icon class="col-white">check</mat-icon>
+                            </button>
+                          </div>
+                        </li>
+                        <li *ngIf="this.selectedRows.length > 0">
+                          <div class="m-l-10" matTooltip="REJECT">
+                            <button mat-mini-fab color="warn" (click)="processMultipleRows('REJECTED')"
+                              class="mat-button-custom">
+                              <mat-icon class="col-white">cancel</mat-icon>
+                            </button>
+                          </div>
+                        </li>
+                        <li *ngIf="this.selectedRows.length > 0">
+                          <div class="m-l-10" matTooltip="RETURN">
+                            <button mat-mini-fab color="accent" (click)="processMultipleRows('RETURNED')"
+                              class="mat-button-custom">
+                              <mat-icon class="col-white">undo</mat-icon>
+                            </button>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                   
+                    <div class="col-8">
+                      <ul class="header-buttons">
+                        <li>
+                          <div class="export-button m-l-10" matTooltip="XLSX">
+                            <img src="assets/images/icons/xlsx.png" alt="" (click)="
+                                exporter.exportTable('xlsx', {
+                                  fileName: 'Users-list',
+                                  sheet: 'sheet1'
+                                })
+                              " />
+                          </div>
+                        </li>
+                        <li>
+                          <div class="export-button m-l-10" matTooltip="CSV">
+                            <img src="assets/images/icons/csv.png" alt="" (click)="exporter.exportTable('csv')" />
+                          </div>
+                        </li>
+                        <li>
+                          <div class="export-button m-l-10" matTooltip="JSON">
+                            <img src="assets/images/icons/json.png" alt="" (click)="exporter.exportTable('json')" />
+                          </div>
+                        </li>
+                        <li>
+                          <div class="export-button m-l-10" matTooltip="TXT">
+                            <img src="assets/images/icons/txt.png" alt="" (click)="exporter.exportTable('txt')" />
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="materialTableHeader mt-2">
+                  <div class="row">
+                    <div class="col-2">
+                      <form [formGroup]="Form">
+                        <!-- <div class="row">
+                          <div class="col-4"> -->
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Status</mat-label>
+  
+                          <mat-select formControlName="status" (selectionChange)="getSelectSelectedStatus()">
+                            <mat-option *ngFor="let reqStatus of reqStatuses" [value]="reqStatus.name">{{ reqStatus.name
+                              }}
+                            </mat-option>
+                          </mat-select>
+  
+                          <mat-error *ngIf="Form.get('status').hasError('required')">
+                            Please select Status
+                          </mat-error>
+                        </mat-form-field>
+                        <!-- </div>
+  
+                        </div> -->
+                      </form>
+                    </div>
+                    <div class="col-10">
+                      <div class="button-container mt-1">
+                        <!-- Button for PENDING status -->
+                        <button mat-raised-button [class.active]="selectedStatus === 'PENDING'" class="mat-button pending"
+                          (click)="getSelectedStatus('PENDING')">
+                          <mat-icon>pending</mat-icon>
+                          PENDING
+                        </button>
+  
+                        <!-- Button for VERIFIED status -->
+                        <button mat-raised-button [class.active]="selectedStatus === 'VERIFIED'"
+                          class="mat-button verified" (click)="getSelectedStatus('VERIFIED')">
+                          <mat-icon>check_circle</mat-icon>
+                          VERIFIED
+                        </button>
+  
+                        <!-- Button for APPROVED status -->
+                        <button mat-raised-button [class.active]="selectedStatus === 'APPROVED'"
+                          class="mat-button approved" (click)="getSelectedStatus('APPROVED')">
+                          <mat-icon>thumb_up</mat-icon>
+                          APPROVED
+                        </button>
+                        <!-- Button for RETURNED status -->
+                        <button mat-raised-button [class.active]="selectedStatus === 'RETURNED'"
+                          class="mat-button returned" (click)="getSelectedStatus('RETURNED')">
+                          <mat-icon>reply</mat-icon>
+                          RETURNED
+                        </button>
+  
+                        <!-- Button for REJECTED status -->
+                        <button mat-raised-button [class.active]="selectedStatus === 'REJECTED'"
+                          class="mat-button rejected" (click)="getSelectedStatus('REJECTED')">
+                          <mat-icon>cancel</mat-icon>
+                          REJECTED
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <mat-table #table matTableExporter [dataSource]="dataSource" matSort class="mat-cell"
+                  #exporter="matTableExporter">
+                  <ng-container matColumnDef="select">
+                    <mat-header-cell *matHeaderCellDef [ngClass]="'tbl-col-width-per-4'">
+                      <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()" [ngClass]="'tbl-checkbox'"
+                        (change)="expSelected()">
+                      </mat-checkbox>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row" [ngClass]="'tbl-col-width-per-4'">
+                      <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)" [ngClass]="'tbl-checkbox'" [aria-label]="checkboxLabel(row)"
+                        (change)="expSelected()">
+                      </mat-checkbox>
+                    </mat-cell>
+                  </ng-container>
+  
+                  <ng-container matColumnDef="sn">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header class="column-nowrap psl-3 tbl-col-width-per-25">Serial No.</mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="column-nowrap psl-3 tbl-col-width-per-25">
+                      {{ row.sn }}
+                    </mat-cell>
+                  </ng-container>
+  
+                  <ng-container matColumnDef="username">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header class="column-nowrap psl-3 tbl-col-width-per-25">User Name</mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="column-nowrap psl-3 tbl-col-width-per-25">
+                      {{ row.username }}
+                    </mat-cell>
+                  </ng-container>
+                  
+                  <ng-container matColumnDef="email">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header class="column-nowrap psl-3 tbl-col-width-per-25">Email</mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="column-nowrap psl-3 tbl-col-width-per-25">
+                      {{ row.email }}
+                    </mat-cell>
+                  </ng-container>
+                  
+                  <ng-container matColumnDef="phoneNo">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header class="column-nowrap psl-3 tbl-col-width-per-25">Phone Number</mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="column-nowrap psl-3 tbl-col-width-per-25">
+                      {{ row.phoneNo }}
+                    </mat-cell>
+                  </ng-container>
+                  
+                  <ng-container matColumnDef="createdOn">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header class="column-nowrap psl-3 tbl-col-width-per-25">Created On</mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="column-nowrap psl-3 tbl-col-width-per-25">
+                      {{ row.createdOn | date: 'short' }}
+                    </mat-cell>
+                  </ng-container>
+                  
+                  <ng-container matColumnDef="verifiedOn">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header class="column-nowrap psl-3 tbl-col-width-per-25">Verified On</mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="column-nowrap psl-3 tbl-col-width-per-25">
+                      {{ row.verifiedOn | date: 'short' }}
+                    </mat-cell>
+                  </ng-container>
+                  
+                  
+                  
+                  <ng-container matColumnDef="approvedTime">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header class="column-nowrap psl-3 tbl-col-width-per-25">Approved Time</mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="column-nowrap psl-3 tbl-col-width-per-25">
+                      {{ row.approvedTime | date: 'short' }}
+                    </mat-cell>
+                  </ng-container>
+                  
+                           
+  
+                  <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header class="column-nowrap psl-3 tbl-col-width-per-25">Status</mat-header-cell>
+                    <mat-cell *matCellDef="let row" class="column-nowrap psl-3 tbl-col-width-per-25">
+                      <ng-container [ngSwitch]="row.status">
+                        <button *ngSwitchCase="'APPROVED'" class="badge badge-solid-green btn btn btn-sm m-1">
+                          <i class="fas fa-check-circle"></i>&nbsp;
+                          {{ row.status }}
+                        </button>
+                        <button *ngSwitchCase="'REJECTED'" class="badge badge-solid-red btn btn btn-sm m-1">
+                          <i class="fas fa-times-circle"></i>&nbsp;
+                          {{ row.status }}
+                        </button>
+                        <button *ngSwitchCase="'RETURNED'" class="badge badge-solid-brown btn btn btn-sm m-1">
+                          <i class="fas fa-undo-alt"></i>&nbsp;
+                          {{ row.status }}
+                        </button>
+                        <button *ngSwitchCase="'PENDING'" class="badge badge-solid-blue btn btn btn-sm m-1">
+                          <i class="fas fa-exclamation-circle"></i>&nbsp;
+                          {{ row.status }}
+                        </button>
+                        <button *ngSwitchDefault class="badge badge-solid-brown btn btn btn-sm m-1">
+                          <i class="fas fa-question-circle"></i>&nbsp;
+                          {{ row.status }}
+                        </button>
+                      </ng-container>
+                    </mat-cell>
+                  </ng-container>
+                 
+  
+                  <ng-container matColumnDef="action">
+                    <mat-header-cell class="column-nowrap psl-3 tbl-col-width-per-15 pr-0"
+                      *matHeaderCellDef>Action</mat-header-cell>
+                    <mat-cell *matCellDef="let row; let i = index" class="column-nowrap psl-3 tbl-col-width-per-15 pr-0">
+                      
+  
+                      <button mat-icon-button color="accent" (click)="$event.stopPropagation()"
+                        (click)="deleteUser(row.sn)" class="tbl-action-btn">
+                        <app-feather-icons [icon]="'trash-2'" [class]="'tbl-fav-delete'"></app-feather-icons>
+                      </button>
+                    </mat-cell>
+                  </ng-container>
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns" (click)="viewSupplier(row)"
+                    [style.cursor]="'pointer'" matRipple>
+                  </mat-row>
+                  <mat-cell *matNoDataRow colspan="4">
+                    No data matching the filter "{{ input.value }}"</mat-cell>
+                </mat-table>
+                <div *ngIf="isLoading" class="tbl-spinner">
+                  <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate">
+                  </mat-progress-spinner>
+                </div>
+                <mat-paginator [pageSize]="10" [pageSizeOptions]="[2, 5, 10, 20, 30, 40, 50, 100]"
+                  aria-label="Select page of users"></mat-paginator>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
