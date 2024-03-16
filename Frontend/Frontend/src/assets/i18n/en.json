@@ -1,0 +1,114 @@
+{
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "Main"
+    },
+    "DASHBOARD": {
+      "TEXT": "Dashboard",
+      "LIST": {
+        "DASHBOARD1": "Dashboard 1",
+        "DASHBOARD2": "Dashboard 2"
+      }
+    },
+    "PROJECTS": {
+      "TEXT": "Projects",
+      "LIST": {
+        "ALL-PROJECTS": "All Projects",
+        "ADD-PROJECT": "Add Project",
+        "PROJECT-DETAILS": "Project Details"
+      }
+    },
+    "EMPLOYEES": {
+      "TEXT": "Employees",
+      "LIST": {
+        "ALL-EMPLOYEE": "All Employees",
+        "ADD-EMPLOYEE": "Add Employee",
+        "EDIT-EMPLOYEE": "Edit Employee",
+        "PROFILE": "Employee Profile"
+      }
+    },
+    "CLIENTS": {
+      "TEXT": "Clients",
+      "LIST": {
+        "ALL-CLIENTS": "All Clients",
+        "ADD-CLIENT": "Add Client",
+        "EDIT-CLIENT": "Edit Client"
+      }
+    },
+    "ACCOUNTS": {
+      "TEXT": "Accounts",
+      "LIST": {
+        "ALL-PAYMENTS": "All Payments",
+        "ADD-PAYMENT": "Add Payment",
+        "INVOICE": "Invoice"
+      }
+    },
+    "EMPLOYEE": {    
+        "DASHBOARD": "Dashboard",
+        "ATTENDANCE": "Attendance",
+        "MY-LEAVES": "My Leaves",
+        "MYTEAM": "My Team",
+        "MYPROJECTS": "My Projects",
+        "MYTASKS": "My Tasks",
+        "SETTINGS": "Settings",
+        "CHAT": "Chat"
+    },
+    "LEAVES": {
+      "TEXT": "Leave Management",
+      "LIST": {
+        "LEAVE-REQUESTS": "All Leave Requests",
+        "LEAVE-BALANCE": "Leave Balance",
+        "LEAVE-TYPES": "Leave Types"
+      }
+    },
+    "HOLIDAYS": {
+      "TEXT": "Holidays",
+      "LIST": {
+        "ALL-HOLIDAYS": "All Holidays",
+        "ADD-HOLIDAY": "Add Holiday",
+        "EDIT-HOLIDAY": "Edit Holiday"
+      }
+    },
+    "ATTENDANCE": {
+      "TEXT": "Attendance",
+      "LIST": {
+        "TODAY": "Today's Attendance",
+        "EMPLOYEE": "Employee Attendance",
+        "SHEET": "Attendance Sheet"
+      }
+    },
+    "CLIENT": {    
+      "TEXT": "Client",
+      "DASHBOARD": "Dashboard",
+      "PROJECTS": {
+        "TEXT": "Projects",
+        "LIST": {
+          "MY-PROJECTS": "My Projects",
+          "PROJECT-DETAILS": "Project Details"
+        }
+      },
+      "SUPPORTS": {
+        "TEXT": "Supports",
+        "LIST": {
+          "TICKETS": "Tickets",
+          "TICKET-DETAILS": "Ticket Details"
+        }
+      },
+      "BILLING": "Billing",
+      "CHAT": "Chat",
+      "SETTINGS": "Settings"
+    },
+    "APPS": {
+      "TEXT": "Apps"
+    },
+    "CALENDAR": {
+      "TEXT": "Calendar"
+    },
+    "TASK": {
+      "TEXT": "Task"
+    },
+    "CONTACTS": {
+      "TEXT": "Contacts"
+    }
+  }
+}

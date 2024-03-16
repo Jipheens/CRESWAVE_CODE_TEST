@@ -1,0 +1,118 @@
+[{
+    "id": "001",
+    "img": "assets/images/user/usrbig1.jpg",
+    "leave_name": "Work From Home Leave",
+    "leave_unit": "Days",
+    "type":"Paid",
+    "status":"Deactive",
+    "note": "Winged lights seed don't to him. Be day fish whose had that it him sea bearing abundantly greater."
+  },
+  {
+    "id": "002",
+    "img": "assets/images/user/usrbig2.jpg",
+    "leave_name": "Casual Leave",
+    "leave_unit": "Hours",
+    "type":"Unpaid",
+    "status":"Active",
+    "note": "Winged lights seed don't to him. Be day fish whose had that it him sea bearing abundantly greater."
+  },
+  {
+    "id": "003",
+    "img": "assets/images/user/usrbig3.jpg",
+    "leave_name": "Emergency Leave",
+    "leave_unit": "Days",
+    "type":"Unpaid",
+    "status":"Active",
+    "note": "Winged lights seed don't to him. Be day fish whose had that it him sea bearing abundantly greater."
+  },
+  {
+    "id": "004",
+    "img": "assets/images/user/usrbig4.jpg",
+    "leave_name": "Family Leave",
+    "leave_unit": "Hours",
+    "type":"Unpaid",
+    "status":"Deactive",
+    "note": "Winged lights seed don't to him. Be day fish whose had that it him sea bearing abundantly greater."
+  },
+  {
+    "id": "005",
+    "img": "assets/images/user/usrbig5.jpg",
+    "leave_name": "Sick Leave",
+    "leave_unit": "Days",
+    "type":"Unpaid",
+    "status":"Active",
+    "note": "Winged lights seed don't to him. Be day fish whose had that it him sea bearing abundantly greater."
+  },
+  {
+    "id": "006",
+    "img": "assets/images/user/usrbig6.jpg",
+    "leave_name": "Casual Leave",
+    "leave_unit": "Days",
+    "type":"Unpaid",
+    "status":"Active",
+    "note": "Winged lights seed don't to him. Be day fish whose had that it him sea bearing abundantly greater."
+  },
+  {
+    "id": "007",
+    "img": "assets/images/user/usrbig7.jpg",
+    "leave_name": "Maternity Leave",
+    "leave_unit": "Days",
+    "type":"Paid",
+    "status":"Deactive",
+    "note": "Winged lights seed don't to him. Be day fish whose had that it him sea bearing abundantly greater."
+  },
+  {
+    "id": "008",
+    "img": "assets/images/user/usrbig8.jpg",
+    "leave_name": "Sick Leave",
+    "leave_unit": "Days",
+    "type":"Unpaid",
+    "status":"Active",
+    "note": "Winged lights seed don't to him. Be day fish whose had that it him sea bearing abundantly greater."
+  },
+  {
+    "id": "009",
+    "img": "assets/images/user/usrbig9.jpg",
+    "leave_name": "Sick Leave",
+    "leave_unit": "Days",
+    "type":"Unpaid",
+    "status":"Active",
+    "note": "Winged lights seed don't to him. Be day fish whose had that it him sea bearing abundantly greater."
+  },
+  {
+    "id": "010",
+    "img": "assets/images/user/usrbig10.jpg",
+    "leave_name": "Casual Leave",
+    "leave_unit": "Days",
+    "type":"Unpaid",
+    "status":"Active",
+    "note": "Winged lights seed don't to him. Be day fish whose had that it him sea bearing abundantly greater."
+  },
+  {
+    "id": "011",
+    "img": "assets/images/user/usrbig1.jpg",
+    "leave_name": "Casual Leave",
+    "leave_unit": "Days",
+    "type":"Unpaid",
+    "status":"Active",
+    "note": "Winged lights seed don't to him. Be day fish whose had that it him sea bearing abundantly greater."
+  },
+  {
+    "id": "012",
+    "img": "assets/images/user/usrbig2.jpg",
+    "leave_name": "Emergency Leave",
+    "leave_unit": "Days",
+    "type":"Unpaid",
+    "status":"Active",
+    "note": "Winged lights seed don't to him. Be day fish whose had that it him sea bearing abundantly greater."
+  },
+  {
+    "id": "013",
+    "img": "assets/images/user/usrbig3.jpg",
+    "leave_name": "Work From Home Leave",
+    "leave_unit": "Days",
+    "type":"Paid",
+    "status":"Deactive",
+    "note": "Winged lights seed don't to him. Be day fish whose had that it him sea bearing abundantly greater."
+  }
+]

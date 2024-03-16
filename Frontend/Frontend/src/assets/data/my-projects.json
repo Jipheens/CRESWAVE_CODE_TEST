@@ -1,0 +1,93 @@
+[{
+    "id": "258",
+    "title": "Android Application",
+    "clientName": "Cara Stevens",
+    "startDate": "2021-05-10T14:22:18Z",
+    "endDate": "2021-07-25T14:22:18Z",
+    "deadLine": "2021-08-25T14:22:18Z",
+    "noOfMembers":2,
+    "priority":"1",
+    "progress":78,
+    "status":"Active",
+    "details": "God creature is sixth was abundantly and sea gathered"
+  },
+  {
+    "id": "578",
+    "title": "PHP website",
+    "clientName": "Sarah Smith",
+    "startDate": "2021-02-22T14:22:18Z",
+    "endDate": "2021-04-12T14:22:18Z",
+    "deadLine": "2021-05-10T14:22:18Z",
+    "noOfMembers":2,
+    "priority":"-1",
+    "progress":67,
+    "status":"Deactive",
+    "details": "God creature is sixth was abundantly and sea gathered"
+  },
+  {
+    "id": "267",
+    "title": "Logo Design",
+    "clientName": "John Deo",
+    "startDate": "2021-01-05T14:22:18Z",
+    "endDate": "2021-03-15T14:22:18Z",
+    "deadLine": "2021-04-24T14:22:18Z",
+    "noOfMembers":2,
+    "priority":"1",
+    "progress":80,
+    "status":"Active",
+    "details": "God creature is sixth was abundantly and sea gathered"
+  },
+  {
+    "id": "114",
+    "title": "Chat IOS app",
+    "clientName": "Pooja Sharma",
+    "startDate": "2021-05-17T14:22:18Z",
+    "endDate": "2021-08-11T14:22:18Z",
+    "deadLine": "2021-09-13T14:22:18Z",
+    "noOfMembers":2,
+    "priority":"0",
+    "progress":47,
+    "status":"Active",
+    "details": "God creature is sixth was abundantly and sea gathered"
+  },
+  {
+    "id": "109",
+    "title": "Nursary App",
+    "clientName": "Ashton Cox",
+    "startDate": "2021-04-19T14:22:18Z",
+    "endDate": "2021-06-28T14:22:18Z",
+    "deadLine": "2021-06-30T14:22:18Z",
+    "noOfMembers":2,
+    "priority":"1",
+    "progress":65,
+    "status":"Deactive",
+    "details": "God creature is sixth was abundantly and sea gathered"
+  },
+  {
+    "id": "367",
+    "title": "Html static website",
+    "clientName": "Sarah Smith",
+    "startDate": "2021-05-10T14:22:18Z",
+    "endDate": "2021-06-17T14:22:18Z",
+    "deadLine": "2021-06-24T14:22:18Z",
+    "noOfMembers":2,
+    "priority":"0",
+    "progress":50,
+    "status":"Deactive",
+    "details": "God creature is sixth was abundantly and sea gathered"
+  },
+  {
+    "id": "865",
+    "title": "Accounting software",
+    "clientName": "Pooja Sharma",
+    "startDate": "2021-05-19T14:22:18Z",
+    "endDate": "2021-06-20T14:22:18Z",
+    "deadLine": "2021-07-01T14:22:18Z",
+    "noOfMembers":2,
+    "priority":"-1",
+    "progress":27,
+    "status":"Active",
+    "details": "God creature is sixth was abundantly and sea gathered"
+  }
+  
+]

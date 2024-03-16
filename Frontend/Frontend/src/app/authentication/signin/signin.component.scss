@@ -1,0 +1,99 @@
+.authBackground {
+  // background-image: linear-gradient(
+  //     rgba(14, 14, 24, 0.8),
+  //     rgba(35, 35, 54, 0.8)
+  //   ),
+  //   url("/assets/images/sean.jpg");
+
+  background-image: linear-gradient(rgba(14, 14, 24, 0.8),
+      rgba(24, 21, 50, 0.705)),
+    url("/assets/images/background/bc4.jpg");
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  //opacity: 0.7;
+}
+
+.form-box {
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 50px 50px 50px 50px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+h6 {
+  text-align: center;
+  color: #6a3a02;
+  /* Darker Green */
+  font-weight: 400;
+  font-family: Georgia, serif;
+}
+
+h3 {
+  text-align: center;
+  color: #6a3a02;
+  /* Darker Green */
+  font-weight: 500;
+  font-family: Georgia, serif;
+}
+
+h2 {
+  text-align: center;
+  color: #6a3a02;
+  /* Darker Green */
+  font-weight: 600;
+  font-family: Georgia, serif;
+}
+
+
+// *****************************************************************************************************************************************************************************
+
+// .authBackground {
+//   // background-image: linear-gradient(
+//   //     rgba(14, 14, 24, 0.8),
+//   //     rgba(35, 35, 54, 0.8)
+//   //   ),
+//   //   url("/assets/images/sean.jpg");
+
+//   background-image: linear-gradient(
+//      rgba(20, 20, 61, 0.586),
+//      rgba(16, 14, 40, 0.586)
+//   ),
+//   // url("/assets/images/sean.jpg");
+//   url("/assets/images/Kamp1.png");
+
+
+
+//   height: 100vh;
+//   width: 100%;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   position: relative;
+//   //opacity: 0.7;
+// }
+
+// .form-box {
+//   border-radius: 10px;
+//   width: 90%;
+//   max-width: 600px;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   background: #ffffff;
+//   padding: 50px 50px 50px 50px;
+//   text-align: center;
+//   background-color: rgba(255, 255, 255, 0.808);
+// }

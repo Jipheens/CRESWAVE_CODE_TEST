@@ -1,0 +1,144 @@
+[{
+    "id": "001",
+    "img": "assets/images/user/usrbig1.jpg",
+    "name": "John Deo",
+    "first_in": "10:30",
+    "break": "01:15",
+    "last_out": "19:37",
+    "total": "08:02",
+    "status": "present",
+    "shift": "Night Shift"
+  },
+  {
+    "id": "002",
+    "img": "assets/images/user/usrbig2.jpg",
+    "name": "Sarah Smith",
+    "first_in": "10:32",
+    "break": "01:00",
+    "last_out": "19:30",
+    "total": "08:10",
+    "status": "absent",
+    "shift": "Day Shift"
+  },
+  {
+    "id": "003",
+    "img": "assets/images/user/usrbig3.jpg",
+    "name": "Edna Gilbert",
+    "first_in": "10:42",
+    "break": "01:10",
+    "last_out": "19:32",
+    "total": "08:08",
+    "status": "absent",
+    "shift": "Day Shift"
+  },
+  {
+    "id": "004",
+    "img": "assets/images/user/usrbig4.jpg",
+    "name": "Shelia Osterberg",
+    "first_in": "10:38",
+    "break": "01:07",
+    "last_out": "19:40",
+    "total": "08:00",
+    "status": "present",
+    "shift": "Night Shift"
+  },
+  {
+    "id": "005",
+    "img": "assets/images/user/usrbig5.jpg",
+    "name": "Barbara Garland",
+    "first_in": "10:33",
+    "break": "01:15",
+    "last_out": "19:30",
+    "total": "08:01",
+    "status": "present",
+    "shift": "Night Shift"
+  },
+  {
+    "id": "006",
+    "img": "assets/images/user/usrbig6.jpg",
+    "name": "Sarah Smith",
+    "first_in": "10:30",
+    "break": "01:10",
+    "last_out": "19:37",
+    "total": "08:10",
+    "status": "absent",
+    "shift": "Day Shift"
+  },
+  {
+    "id": "007",
+    "img": "assets/images/user/usrbig7.jpg",
+    "name": "Marie Brodsky",
+    "first_in": "10:32",
+    "break": "01:05",
+    "last_out": "19:40",
+    "total": "08:00",
+    "status": "absent",
+    "shift": "Day Shift"
+  },
+  {
+    "id": "008",
+    "img": "assets/images/user/usrbig8.jpg",
+    "name": "Kara Thompson",
+    "first_in": "10:40",
+    "break": "01:07",
+    "last_out": "19:30",
+    "total": "08:12",
+    "status": "present",
+    "shift": "Day Shift"
+  },
+  {
+    "id": "009",
+    "img": "assets/images/user/usrbig9.jpg",
+    "name": "Joseph Nye",
+    "first_in": "10:28",
+    "break": "01:00",
+    "last_out": "19:32",
+    "total": "08:02",
+    "status": "present",
+    "shift": "Night Shift"
+  },
+  {
+    "id": "010",
+    "img": "assets/images/user/usrbig10.jpg",
+    "name": "Ricardo Wendler",
+    "first_in": "10:38",
+    "break": "01:15",
+    "last_out": "19:37",
+    "total": "08:00",
+    "status": "present",
+    "shift": "Night Shift"
+  },
+  {
+    "id": "011",
+    "img": "assets/images/user/usrbig1.jpg",
+    "name": "Brian Shelley",
+    "first_in": "10:30",
+    "break": "01:07",
+    "last_out": "19:38",
+    "total": "08:10",
+    "status": "absent",
+    "shift": "Day Shift"
+  },
+  {
+    "id": "012",
+    "img": "assets/images/user/usrbig2.jpg",
+    "name": "Theresa Bullock",
+    "first_in": "10:40",
+    "break": "01:00",
+    "last_out": "19:30",
+    "total": "08:08",
+    "status": "present",
+    "shift": "Day Shift"
+  },
+  {
+    "id": "013",
+    "img": "assets/images/user/usrbig3.jpg",
+    "name": "Jeannie Elder",
+    "first_in": "10:42",
+    "break": "01:05",
+    "last_out": "19:38",
+    "total": "08:12",
+    "status": "present",
+    "shift": "Day Shift"
+  }
+]

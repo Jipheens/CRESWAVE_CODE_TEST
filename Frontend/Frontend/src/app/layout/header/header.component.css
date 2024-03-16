@@ -1,0 +1,45 @@
+/* styles.scss or styles.css */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'; /* Add the desired font family */
+
+
+/* Add some padding to the left of the navigation items */
+.navbar-nav {
+  padding-left: 20px;
+}
+
+/* Style the links to remove underlines and adjust colors as needed */
+.navbar-nav li a {
+  text-decoration: none;
+  color: #333; /* Adjust color as needed */
+  font-size: larger;
+}
+
+/* Add some spacing between the links */
+.navbar-nav li {
+  margin-bottom: 10px;
+}
+.navbar-spacing {
+  margin-right: 15px; /* Adjust this value to control the spacing */
+  display: inline-block; /* Ensures menu items appear horizontally */
+  font-size: 18px; /* Change the font size as desired */
+  font-family: 'Roboto', sans-serif; /* Apply the desired font family */
+}
+
+
+/* Style the user profile chip */
+.user_profile .chip {
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2; /* Adjust color as needed */
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Adjust the font size and color for the user name */
+.user_profile .chip span {
+  font-size: 14px;
+  color: #333; /* Adjust color as needed */
+  margin-left: 5px;
+}
