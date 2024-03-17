@@ -1,0 +1,29 @@
+<h2>{{ existingBlogData ? 'Update Blog' : 'Create New Blog' }}</h2>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Blog Title" [(ngModel)]="blogTitle">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Blog Type" [(ngModel)]="blogType">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Headline" [(ngModel)]="headline">
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Blog Description" [(ngModel)]="blogDescription"></textarea>
+  </mat-form-field>
+    <div class="form-group">
+    <label for="author">Author:</label>
+    <input type="text" id="author" [(ngModel)]="author" readonly>
+  </div>
+  
+  <mat-form-field>
+    <input matInput placeholder="Timestamp" [(ngModel)]="timestamp" disabled>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button color="primary" (click)="onSubmitClick()">
+    {{ existingBlogData ? 'Update' : 'Submit' }}
+  </button>
+</div>

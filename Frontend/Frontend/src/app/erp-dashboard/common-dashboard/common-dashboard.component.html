@@ -132,261 +132,99 @@
             <p class="text-muted">{{ currentUser.empPfNo || "-" }}</p>
           </div>
         </div>
-      </div>
-  
+      </div>    
+
+     
       <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+        <!-- <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" *ngFor="let module of modules">
           <div class="box-part">
+            <div class="menu-wrapper">
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="updateModule(module)">
+                  <mat-icon>edit</mat-icon>
+                  <span>Update</span>
+                </button>
+                <button mat-menu-item (click)="deleteModule(module.id)">
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu>
+            </div>
+            
             <div class="icon-wrapper">
-              <i class="fas fa-user fa-3x col-green"></i>
-              <div class="arrow-box-icon" (click)="openModule('EmployeeSelfServiceModule')">
+              <mat-icon>swap_horizontal_circle</mat-icon>
+              <div class="arrow-box-icon" (click)="openModule(module.name)">
                 <i class="fas fa-sign-in-alt fa-3x"></i>
               </div>
             </div>
             <hr />
             <div class="title">
-              <h3>Employee Self Service Portal</h3>
+              <h3>{{ module.blogTittle }}</h3>
             </div>
             <div class="text">
-              <p>
-                E&M's Employee Self Service Portal revolutionizes employee
-                interactions, enabling efficiency and excellence.
-              </p>
+              <p>{{ module.headline }}</p>
             </div>
-            <button class="badge badge-solid-green btn btn btn-sm m-1 green-button"
-              (click)="openModule('EmployeeSelfServiceModule')">
-              Click to Proceed
+            <button class="badge badge-solid-green btn btn btn-sm m-1 green-button" (click)="openModule(module.name)">
+              Click to Read
             </button>
           </div>
-        </div>
-  
-        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+        </div> -->
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12" *ngFor="let module of modules">
           <div class="box-part">
+            <div class="menu-wrapper">
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="updateModule(module)">
+                  <mat-icon>edit</mat-icon>
+                  <span>Update</span>
+                </button>
+                <button mat-menu-item (click)="deleteModule(module.id)">
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu>
+            </div>
+            
             <div class="icon-wrapper">
-              <i class="fas fa-users fa-3x col-green"></i>
-              <span class="view-details-icon">
-                <div class="arrow-box-icon">
-                  <i class="fas fa-sign-in-alt fa-3x" (click)="openModule('AdminModule')"></i>
-                </div>
-              </span>
-            </div>
-            <hr />
-            <div class="title">
-              <h3>Admin Module</h3>
-            </div>
-            <div class="text">
-              <p>
-                E&M's Admin Module offers centralized control of system settings
-                and user permissions for streamlined management.
-              </p>
-            </div>
-            <button class="badge badge-solid-green btn btn btn-sm m-1 green-button" (click)="openModule('AdminModule')">
-              Click to Proceed
-            </button>
-          </div>
-        </div>
-  
-        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-          <div class="box-part">
-            <div class="icon-wrapper">
-              <i class="fas fa-shopping-cart fa-3x col-green"></i>
-              <div class="arrow-box-icon" (click)="openModule('ProcurementModule')">
-                <i class="fas fa-sign-in-alt fa-3x fa-3x"></i>
+              <mat-icon>swap_horizontal_circle</mat-icon>
+              <div class="arrow-box-icon" (click)="openModule(module.name)">
+                <i class="fas fa-sign-in-alt fa-3x"></i>
               </div>
             </div>
             <hr />
             <div class="title">
-              <h3>Procurement Module</h3>
+              <h3>{{ module.blogTittle }}</h3>
             </div>
             <div class="text">
-              <p>
-                E&M's Procurement Module streamlines procurement with suppliers,
-                optimized decisions, and cost savings.
-              </p>
+              <p>{{ module.headline }}</p>
             </div>
-            <button class="badge badge-solid-green btn btn btn-sm m-1 green-button"
-              (click)="openModule('ProcurementModule')">
-              Click to Proceed
+            <button class="badge badge-solid-green btn btn btn-sm m-1 green-button" (click)="openModule(module)">
+              Click to Read
             </button>
           </div>
         </div>
-  
+        
         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
           <div class="box-part">
-            <div class="icon-wrapper">
-              <i class="fas fa-users fa-3x col-green"></i>
-              <div class="arrow-box-icon" (click)="openModule('HumanResourceModule')">
-                <i class="fas fa-sign-in-alt fa-3x fa-3x"></i>
-              </div>
-            </div>
-            <hr />
+            <button mat-icon-button (click)="addNewBlog()">
+              <mat-icon>add</mat-icon>
+            </button>
             <div class="title">
-              <h3>HR Module</h3>
+              <h3>Create New Blog</h3>
             </div>
             <div class="text">
-              <p>
-                E&M's HR Module empowers businesses with comprehensive features
-                for streamlined workforce management.
-              </p>
+              <p>Click the button to add a new blog.</p>
             </div>
-            <button class="badge badge-solid-green btn btn btn-sm m-1 green-button"
-              (click)="openModule('HumanResourceModule')">
-              Click to Proceed
-            </button>
           </div>
         </div>
-  
-        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-          <div class="box-part">
-            <div class="icon-wrapper">
-              <i class="fas fa-money-bill-wave fa-3x col-green"></i>
-              <div class="arrow-box-icon" (click)="openModule('FinanceModule')">
-                <i class="fas fa-sign-in-alt fa-3x fa-3x"></i>
-              </div>
-            </div>
-            <hr />
-            <div class="title">
-              <h3>Finance Module</h3>
-            </div>
-            <div class="text">
-              <p>
-                E&M's Finance Module offers powerful tools for accurate financial
-                operations and informed decision-making.
-              </p>
-            </div>
-            <button class="badge badge-solid-green btn btn btn-sm m-1 green-button" (click)="openModule('FinanceModule')">
-              Click to Proceed
-            </button>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-          <div class="box-part">
-            <div class="icon-wrapper">
-              <i class="fas fa-building fa-3x col-green"></i>
-              <div class="arrow-box-icon" (click)="openModule('FixedAssetsModule')">
-                <i class="fas fa-sign-in-alt fa-3x fa-3x"></i>
-              </div>
-            </div>
-            <hr />
-            <div class="title">
-              <h3>Fixed Assets Module</h3>
-            </div>
-            <div class="text">
-              <p>
-                The Fixed Assets module provides comprehensive tracking,
-                valuation, and reporting for efficient asset management.
-              </p>
-            </div>
-            <button class="badge badge-solid-green btn btn btn-sm m-1 green-button"
-              (click)="openModule('FixedAssetsModule')">
-              Click to Proceed
-            </button>
-          </div>
-        </div>
-  
-        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-          <div class="box-part">
-            <div class="icon-wrapper">
-              <i class="fas fa-truck fa-3x col-green"></i>
-              <div class="arrow-box-icon" (click)="openModule('SuppliersManagementModule')">
-                <i class="fas fa-sign-in-alt fa-3x fa-3x"></i>
-              </div>
-            </div>
-            <hr />
-            <div class="title">
-              <h3>Suppliers Portal Management</h3>
-            </div>
-            <div class="text">
-              <p>
-                E&M's Supplier Management Module revolutionizes supplier
-                interactions, enabling efficiency and excellence.
-              </p>
-            </div>
-            <button class="badge badge-solid-green btn btn btn-sm m-1 green-button"
-              (click)="openModule('SuppliersManagementModule')">
-              Click to Proceed
-            </button>
-          </div>
-        </div>
-  
-
-  
-        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-          <div class="box-part">
-            <div class="icon-wrapper">
-              <i class="fas fa-money-bill-alt fa-3x col-green"></i>
-              <div class="arrow-box-icon" (click)="openModule('BudgetModule')">
-                <i class="fas fa-sign-in-alt fa-3x fa-3x"></i>
-              </div>
-            </div>
-            <hr />
-            <div class="title">
-              <h3>Budget Management</h3>
-            </div>
-            <div class="text">
-              <p>
-                Efficiently manage budget funds for optimal financial management
-                and resource allocation.
-              </p>
-            </div>
-            <button class="badge badge-solid-green btn btn btn-sm m-1 green-button" (click)="openModule('BudgetModule')">
-              Click to Proceed
-            </button>
-          </div>
-        </div>
-  
-        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-          <div class="box-part">
-            <div class="icon-wrapper">
-              <i class="fas fa-money-check fa-3x col-green"></i>
-              <div class="arrow-box-icon" (click)="openModule('ImprestModule')">
-                <i class="fas fa-sign-in-alt fa-3x fa-3x"></i>
-              </div>
-            </div>
-            <hr />
-            <div class="title">
-              <h3>Imprest Management</h3>
-            </div>
-            <div class="text">
-              <p>
-                Centralized control optimizes imprest fund management for
-                efficient operations and oversight.
-              </p>
-            </div>
-            <button class="badge badge-solid-green btn btn btn-sm m-1 green-button" (click)="openModule('ImprestModule')">
-              Click to Proceed
-            </button>
-          </div>
-        </div>
-  
-
-  
-        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-          <div class="box-part">
-            <div class="icon-wrapper">
-              <i class="fas fa-credit-card fa-3x col-green"></i>
-              <div class="arrow-box-icon" (click)="openModule('InventoryModule')">
-                <i class="fas fa-sign-in-alt fa-3x fa-3x"></i>
-              </div>
-            </div>
-            <hr />
-            <div class="title">
-              <h3>Inventory Management</h3>
-            </div>
-            <div class="text">
-              <p>
-                Efficiently manage inventory transactions and streamline payment
-                processes for better financial control.
-              </p>
-            </div>
-            <button class="badge badge-solid-green btn btn btn-sm m-1 green-button"
-              (click)="openModule('InventoryModule')">
-              Click to Proceed
-            </button>
-          </div>
-        </div>
+        
       </div>
-  
+      
       <footer class="footer">
         <div class="container">
             

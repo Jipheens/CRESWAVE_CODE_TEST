@@ -1,12 +1,18 @@
 import { Component, HostListener, OnInit, OnDestroy } from "@angular/core";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { Router } from "@angular/router";
-import { interval, Subscription } from "rxjs";
+import { interval, Subject, Subscription } from "rxjs";
 import { ResetPasswordComponent } from "src/app/authentication/reset-password/reset-password.component";
 import { AuthService } from "src/app/core/service/auth.service";
 import { NotificationService } from "src/app/core/service/notification.service";
 import { TokenCookieService } from "src/app/core/service/token-storage-cookies.service";
 import { takeUntil } from 'rxjs/operators';
+import { HttpClient } from "@angular/common/http";
+import { SelectionModel } from "@angular/cdk/collections";
+import { MatTableDataSource } from "@angular/material/table";
+import { UserManagementService } from "src/app/user-management.service";
+import { SnackbarService } from "src/app/shared/services/snackbar.service";
+import { AddBlogDialogComponent } from "../add-blog-dialog/add-blog-dialog.component";
 
 
 @Component({
@@ -17,50 +23,54 @@ import { takeUntil } from 'rxjs/operators';
 export class CommonDashboardComponent implements OnInit {
   currentUser: any;
   currentYear: any;
-  greetingMessage: string; // Add this line
+  modules: any[] = [];
+  greetingMessage: string; 
   profilePictureUrl: string = 'assets/images/user/profile_img.png';
   checkInTime: Date;
   checkOutTime: Date;
-  checkInIntervalSubscription: Subscription;
-  elapsedTime: number = 0; // in seconds
+  data: any;
 
+  checkInIntervalSubscription: Subscription;
+  elapsedTime: number = 0; 
   private reloadExecuted: boolean;
   private tokenRefreshSubscription: Subscription;
-
+blogs: any[] = [];
   passwordFlag = "N";
   elapsedTimeDisplay: string;
+  isLoading = true;
+  destroy$: Subject<boolean> = new Subject<boolean>();
+
+
 
   constructor(
     private router: Router,
     private notificationAPI: NotificationService,
     private tokenCookieService: TokenCookieService,
     private authService: AuthService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private http: HttpClient,
+    private snackbar: SnackbarService,
+
+    private userService: UserManagementService,
+
   ) { }
 
-  ngOnInit() {
-    this.currentYear = new Date().getFullYear();
-    // this.passwordFlag = this.tokenCookieService.getUser().isSystemGenPassword;
-    this.currentUser = this.tokenCookieService.getUser();
-    console.log("currentUser Main dashboard: ", this.currentUser);
-    // if (this.currentUser !== null && this.currentUser !== undefined) {
-    //   this.performTokenRefresh();
-    // }
-    // console.log("passwordFlag: ", this.passwordFlag);
-    // if (this.passwordFlag === "Y") {
-    //   this.resetPassword();
-    // } else if (!this.passwordFlag) {
-    // }
-    this.setGreeting(); // Call the method to set the greeting
-     // Restore the timer state if available
-     const savedCheckInTime = localStorage.getItem('checkInTime');
-     if (savedCheckInTime) {
-       this.checkInTime = new Date(savedCheckInTime);
-       this.startCheckInTimer();
-     }
- }
 
- setGreeting(): void { // Implement the method to set the greeting
+ngOnInit() {
+  this.currentYear = new Date().getFullYear();
+  this.currentUser = this.tokenCookieService.getUser();
+  console.log("currentUser Main dashboard: ", this.currentUser);
+  this.getData();
+  this.setGreeting();
+  const savedCheckInTime = localStorage.getItem('checkInTime');
+  if (savedCheckInTime) {
+    this.checkInTime = new Date(savedCheckInTime);
+    this.startCheckInTimer();
+  }
+}
+
+
+ setGreeting(): void { 
     const currentHour = new Date().getHours();
     if (currentHour >= 4 && currentHour < 12) {
       this.greetingMessage = 'Good Morning SuperAdmin!';
@@ -82,7 +92,87 @@ export class CommonDashboardComponent implements OnInit {
     }
  }
 
-  //isSystemGenPassword
+ addNewBlog(): void {
+  const dialogRef = this.dialog.open(AddBlogDialogComponent, {
+    width: '500px', 
+  });
+
+  dialogRef.afterClosed().subscribe((result) => {
+    if (result) {
+      console.log('New blog added:', result);
+    }
+  });
+}
+
+
+
+// updateModule(module: any) {
+//   console.log('Update module:', module);
+
+//   const dialogRef = this.dialog.open(AddBlogDialogComponent, {
+//     width: '600px',
+//     data: { existingBlogData: module }
+//   });
+
+//   dialogRef.afterClosed().subscribe((result) => {
+//     // Handle the result if needed
+//     console.log('The dialog was closed');
+//   });
+// }
+
+
+
+updateModule(blogData: any): void {
+  const dialogRef = this.dialog.open(AddBlogDialogComponent, {
+    width: '400px',
+    data: blogData 
+  });
+
+  dialogRef.afterClosed().subscribe((result: any) => {
+    console.log('The dialog was closed with result:', result);
+  });
+}
+
+
+getData() {
+  console.log("making API call");
+  this.isLoading = true;
+  this.userService
+    .getBlogs()
+    .pipe(takeUntil(this.destroy$))
+    .subscribe({
+      next: (res) => {
+        console.log("Response from API:", res);
+        if (res.statusCode === 200) {
+          this.snackbar.showNotification("snackbar-success", res.message);
+          this.data = res.entity;
+          this.modules = this.data;
+        } else {
+          this.snackbar.showNotification("snackbar-danger", res.message || "Unknown error occurred");
+        }
+      },
+      error: (err) => {
+        console.error("Error fetching data:", err);
+        this.snackbar.showNotification("snackbar-danger", "An error occurred while fetching data");
+      },
+      complete: () => {
+        this.isLoading = false;
+      }
+    });
+}
+
+
+openBlogDescription(blog: any) {
+ 
+}
+
+updateBlog(blog: any) {
+  console.log("Update blog:", blog);
+}
+
+deleteBlog(blog: any) {
+  console.log("Delete blog:", blog);
+}
 
   resetPassword() {
     const dialogConfig = new MatDialogConfig();
@@ -97,9 +187,43 @@ export class CommonDashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => { });
   }
 
+
+  
+
+
+  deleteModule(id: number) {
+    this.userService.deleteModule(id).subscribe(
+      (response) => {
+        if (response.statusCode === 200) {
+          this.snackbar.showNotification(
+            "snackbar-success",
+            response.message
+          );
+          const index = this.modules.findIndex(module => module.id === id);
+          if (index !== -1) {
+            this.modules.splice(index, 1);
+          }
+        } else {
+          this.snackbar.showNotification(
+            "snackbar-danger",
+            response.message || "Unknown error occurred"
+          );
+        }
+      },
+      (error) => {
+        console.error("Error deleting module:", error);
+        this.snackbar.showNotification(
+          "snackbar-danger",
+          "An error occurred while deleting module"
+        );
+      }
+    );
+  }
+  
+  
   checkIn() {
     this.checkInTime = new Date();
-    localStorage.setItem('checkInTime', this.checkInTime.toString()); // Save the start time
+    localStorage.setItem('checkInTime', this.checkInTime.toString()); 
     this.startCheckInTimer();
  }
 
@@ -107,18 +231,17 @@ export class CommonDashboardComponent implements OnInit {
   if (this.checkInTime) {
     this.checkOutTime = new Date();
     this.elapsedTime = Math.floor((this.checkOutTime.getTime() - this.checkInTime.getTime()) / 1000);
-    this.checkInIntervalSubscription.unsubscribe(); // Ensure to unsubscribe to prevent memory leaks
+    this.checkInIntervalSubscription.unsubscribe(); 
   }
 }
 
  startCheckInTimer() {
     this.checkInIntervalSubscription = interval(1000).subscribe(() => {
       this.elapsedTime = Math.floor((new Date().getTime() - this.checkInTime.getTime()) / 1000);
-      // / Convert elapsedTime to hours and minutes for display
     const hours = Math.floor(this.elapsedTime / 3600);
     const minutes = Math.floor((this.elapsedTime % 3600) / 60);
     const seconds = this.elapsedTime % 60;
-    this.elapsedTimeDisplay = `${hours}h ${minutes}m ${seconds}s`; // Example format
+    this.elapsedTimeDisplay = `${hours}h ${minutes}m ${seconds}s`; 
     });
  }
 
@@ -131,7 +254,6 @@ export class CommonDashboardComponent implements OnInit {
     }
   }
   handleMouseEnter(event: MouseEvent) {
-    // Show the additional information when the cursor enters the module
     const target = event.target as HTMLElement;
     const nextSibling = target.nextElementSibling as HTMLElement;
     if (nextSibling) {
@@ -140,14 +262,12 @@ export class CommonDashboardComponent implements OnInit {
 }
 
   handleMouseLeave(event: MouseEvent) {
-    // Hide the additional information when the cursor leaves the module
     const target = event.target as HTMLElement;
     const nextSibling = target.nextElementSibling as HTMLElement;
     if (nextSibling) {
         nextSibling.style.display = "none";
     }
 }
-// Other methods and event handlers here
   private performTokenRefresh(): void {
     const refreshToken =
       this.tokenCookieService.getSharedRefreshTokenFromCookie();
@@ -157,11 +277,9 @@ export class CommonDashboardComponent implements OnInit {
         .refreshAccessToken(refreshToken)
         .subscribe(
           (response) => {
-            // Token refreshed successfully, update user session details
             this.tokenCookieService.saveUser(response.entity);
           },
           (error) => {
-            // Token refresh failed, redirect user to login page
             this.router.navigate(["/authentication/signin"]);
           }
         );
@@ -195,61 +313,6 @@ export class CommonDashboardComponent implements OnInit {
       console.log("Invalid module selected.");
     }
   }
-
-  // use this if HR and self service are to be handled externally
-  // openModule(module: string) {
-  //   this.currentUser = this.tokenCookieService.getUser();
-  //   const userId = this.currentUser.id;
-  //   localStorage.setItem(`selectedModule_${userId}`, JSON.stringify(module));
-  //   console.log("module: ", module);
-
-  //   const moduleRoutes = {
-  //     AdminModule: "/admin-module/dashboard",
-  //     ProcurementModule: "/erp-procurement/dashboard",
-  //     HumanResourceModule: "/erp-hr/dashboard",
-  //     EmployeeSelfServiceModule: "/erp-hr/dashboard",
-  //     FinanceModule: "/erp-finance/dashboard",
-  //     FixedAssetsModule: "/erp-fixed-assets/dashboard",
-  //     SuppliersManagementModule: "/erp-suppliers-management/dashboard",
-  //     BudgetModule: "/erp-budget/dashboard",
-  //     ImprestModule: "/erp-imprest/dashboard",
-  //     PrepaymentModule: "/erp-prepayment/dashboard",
-  //     InventoryModule: "/erp-inventory/dashboard",
-  //   };
-
-  //   if (
-  //     module === "HumanResourceModule" ||
-  //     module === "EmployeeSelfServiceModule"
-  //   ) {
-  //     // Navigate to external dashboard for specific modules
-  //     this.tokenCookieService.navigateToExternalDashboard(module).subscribe({
-  //       next: (res) => {
-  //         console.log("res: ", res.body);
-
-  //         if (res.body.statusCode == 200) {
-  //           // Handle success if needed
-  //         } else {
-  //           // Handle error if needed
-  //         }
-  //       },
-  //       error: (err) => {
-  //         // Handle error if needed
-  //       },
-  //       complete: () => {
-  //         // Handle completion if needed
-  //       },
-  //     });
-  //   } else {
-  //     // Navigate to internal module route for all other modules
-  //     const route = moduleRoutes[module];
-  //     if (route) {
-  //       this.router.navigate([route]);
-  //       console.log(`${module} module selected.`);
-  //     } else {
-  //       console.log("Invalid module selected.");
-  //     }
-  //   }
-  // }
 
   @HostListener("window:beforeunload")
   onBackButton() {

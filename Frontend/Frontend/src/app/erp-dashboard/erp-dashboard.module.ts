@@ -27,9 +27,11 @@ import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
 
 import { ComponentsModule } from "src/app/shared/components/components.module";
 import { CommonDashboardComponent } from "./common-dashboard/common-dashboard.component";
+import { AddBlogDialogComponent } from './add-blog-dialog/add-blog-dialog.component';
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
-  declarations: [CommonDashboardComponent],
+  declarations: [CommonDashboardComponent, AddBlogDialogComponent],
   imports: [
     CommonModule,
     ErpDashboardRoutingModule,
@@ -45,6 +47,7 @@ import { CommonDashboardComponent } from "./common-dashboard/common-dashboard.co
     MatIconModule,
     MatDialogModule,
     MatSortModule,
+    MatCardModule ,
     MatRadioModule,
     MatSelectModule,
     MatCheckboxModule,
