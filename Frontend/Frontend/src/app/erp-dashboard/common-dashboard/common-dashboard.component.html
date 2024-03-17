@@ -112,9 +112,9 @@
       <div class="user-det-box mb-2">
         <div class="row">
           <div class="col-md-3 col-6 b-r content-animation">
-            <strong>Branch Code</strong>
+            <strong>User Code</strong>
             <br />
-            <p class="text-muted">{{ currentUser.branchCode || "-" }}</p>
+            <p class="text-muted">{{ currentUser.code || "-" }}</p>
           </div>
           <div class="col-md-3 col-6 b-r content-animation">
             <strong>Department Code</strong>
@@ -122,14 +122,14 @@
             <p class="text-muted">{{ currentUser.departmentCode || "-" }}</p>
           </div>
           <div class="col-md-3 col-6 b-r content-animation">
-            <strong>Cost Center Code</strong>
+            <strong>  age</strong>
             <br />
-            <p class="text-muted">{{ currentUser.costCenterCode || "-" }}</p>
+            <p class="text-muted">{{ currentUser.age || "-" }}</p>
           </div>
           <div class="col-md-3 col-6 content-animation">
             <strong>Member Code</strong>
             <br />
-            <p class="text-muted">{{ currentUser.empPfNo || "-" }}</p>
+            <p class="text-muted">{{ currentUser.userNO || "-" }}</p>
           </div>
         </div>
       </div>    
@@ -183,7 +183,7 @@
                   <mat-icon>edit</mat-icon>
                   <span>Update</span>
                 </button>
-                <button mat-menu-item (click)="deleteModule(module.id)">
+                <button mat-menu-item (click)="deleteModule(module.id)" *ngIf="isSuperUser()">
                   <mat-icon>delete</mat-icon>
                   <span>Delete</span>
                 </button>

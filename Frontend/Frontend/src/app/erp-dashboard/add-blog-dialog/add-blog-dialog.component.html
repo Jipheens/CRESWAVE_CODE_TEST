@@ -1,7 +1,7 @@
 <h2>{{ existingBlogData ? 'Update Blog' : 'Create New Blog' }}</h2>
 <div mat-dialog-content>
   <mat-form-field>
-    <input matInput placeholder="Blog Title" [(ngModel)]="blogTitle">
+    <input matInput placeholder="Blog Title" [(ngModel)]="blogTittle">
   </mat-form-field>
   <mat-form-field>
     <input matInput placeholder="Blog Type" [(ngModel)]="blogType">
@@ -10,7 +10,7 @@
     <input matInput placeholder="Headline" [(ngModel)]="headline">
   </mat-form-field>
   <mat-form-field>
-    <textarea matInput placeholder="Blog Description" [(ngModel)]="blogDescription"></textarea>
+    <textarea matInput placeholder="Blog Description" [(ngModel)]="blogDecription"></textarea>
   </mat-form-field>
     <div class="form-group">
     <label for="author">Author:</label>

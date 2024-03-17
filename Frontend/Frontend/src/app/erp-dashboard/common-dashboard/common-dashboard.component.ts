@@ -104,36 +104,54 @@ ngOnInit() {
   });
 }
 
-
-
-// updateModule(module: any) {
-//   console.log('Update module:', module);
-
+// updateModule(module: any): void {
 //   const dialogRef = this.dialog.open(AddBlogDialogComponent, {
-//     width: '600px',
-//     data: { existingBlogData: module }
-//   });
+//     width: '400px',
+//     data: {
+//       blogTitle: module.blogTittle,
+//       blogType: module.blogType,
+//       headline: module.headline,
+//       blogDescription: module.blogDecription,
+//       author: module.author,
+//       timestamp: module.timestamp
+//     }   });
 
-//   dialogRef.afterClosed().subscribe((result) => {
-//     // Handle the result if needed
-//     console.log('The dialog was closed');
+//   dialogRef.afterClosed().subscribe((result: any) => {
+//     console.log('The dialog was closed with result:', result);
 //   });
 // }
 
-
-
-updateModule(blogData: any): void {
-  const dialogRef = this.dialog.open(AddBlogDialogComponent, {
-    width: '400px',
-    data: blogData 
-  });
-
-  dialogRef.afterClosed().subscribe((result: any) => {
-    console.log('The dialog was closed with result:', result);
-  });
+isSuperUser(): boolean {
+  // Check if the user has the 'ROLE_SUPERUSER' role
+  const userRoles = this.tokenCookieService.getUser().roles;
+  return userRoles.includes('ROLE_SUPERUSER');
 }
 
+updateModule(module: any): void {
+  const currentUser = this.tokenCookieService.getUser().username;
+  
+  const currentTimestamp = new Date().toISOString();
 
+  const dialogRef = this.dialog.open(AddBlogDialogComponent, {
+    width: '400px',
+    data: {
+      id: module.id,
+      blogTittle: module.blogTittle,
+      blogType: module.blogType,
+      headline: module.headline,
+      blogDecription: module.blogDecription,
+      author: currentUser,
+      timestamp: currentTimestamp
+    }
+  });
+
+
+  dialogRef.afterClosed().subscribe(updatedData => {
+    if (updatedData) {
+        this.getData();
+    }
+});
+}
 getData() {
   console.log("making API call");
   this.isLoading = true;
